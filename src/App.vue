@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <Navigator></Navigator>
-    <Sidebar></Sidebar>
+    <div class="menu">      
+      <Sidebar></Sidebar>
+    </div>
+    <div class="content">
+      <Navigator></Navigator>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -24,15 +29,22 @@ export default {
   color: #2c3e50;
   height: 100%;
 }
-
 html {
   height: 100%;
-  font-size: 18px;
   margin: 0px;
 }
-
 body {
   height: 100%;
   margin: 0px;
+}
+.menu {
+  width: 200px;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+}
+.content {
+  height: 100%;
+  margin-left: 200px;
 }
 </style>

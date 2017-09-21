@@ -1,6 +1,5 @@
 <template>
   <div id="navigator">
-
   </div>
 </template>
 
@@ -17,7 +16,7 @@
 <style>
 #navigator {
   width: 100%;
-  height: 3rem;
+  height: 50px;
   background-color: #eef1f6;
 }
 </style>
