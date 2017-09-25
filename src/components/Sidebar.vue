@@ -91,6 +91,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  name: 'Sidebar',
   // 页面初始化的时候会将这些数据加载上去的
   data () {
     console.log('data')
