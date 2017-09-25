@@ -36,6 +36,7 @@ export default new Router({
       name: 'Tab1',
       component: Tab1
     },
+    {
       path: '/listpage',
       name: '一个列表页的示范',
       component: ListPage
@@ -50,7 +51,7 @@ export default new Router({
       name: 'Table',
       component: Table
     },
-    }
+    {
       path: '/vbinddemo',
       name: 'vbind命令演示页面',
       component: VbindDemo
