@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Index from '@/components/Index'
-import Table from '@/components/Table'
+import ListPage from '@/view/ListPage'
+
 
 Vue.use(Router)
 
@@ -19,9 +20,9 @@ export default new Router({
       component: Index
     },
     {
-      path: '/table',
-      name: 'Table',
-      component: Table
+      path: '/listpage',
+      name: '一个列表页的示范',
+      component: ListPage
     }
   ]
 })
