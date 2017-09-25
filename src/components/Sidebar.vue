@@ -47,7 +47,7 @@
           <span slot="title">日志管理</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-1">listpage</el-menu-item>
           <el-menu-item index="2-2">选项2</el-menu-item>
           <el-menu-item index="2-3">选项2</el-menu-item>
         </el-menu-item-group>
@@ -91,6 +91,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  name: 'Sidebar',
   // 页面初始化的时候会将这些数据加载上去的
   data () {
     console.log('data')

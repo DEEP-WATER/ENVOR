@@ -5,6 +5,7 @@
 
 <script>
   export default {
+    name: 'Navigator',
     data () {
       return {
         name: 'show message'
