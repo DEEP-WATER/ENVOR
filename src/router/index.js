@@ -6,6 +6,8 @@ import ListPage from '@/view/ListPage'
 import Layout from '@/view/Layout'
 import Table from '@/components/Table'
 const _import = require('./_import_' + process.env.NODE_ENV)
+import VbindDemo from '@/view/exmapledemo/VbindDemo'
+
 Vue.use(Router)
 
 export default new Router({
@@ -41,6 +43,11 @@ export default new Router({
       path: '/table',
       name: 'Table',
       component: Table
+    },
+    }
+      path: '/vbinddemo',
+      name: 'vbind命令演示页面',
+      component: VbindDemo
     }
   ]
 })
