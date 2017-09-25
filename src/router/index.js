@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import Hello from '@/components/Hello'
 import Index from '@/components/Index'
+
+import Tab1 from '@/components/Tab1'
 import ListPage from '@/view/ListPage'
 import Layout from '@/view/Layout'
 import Table from '@/components/Table'
@@ -30,6 +32,10 @@ export default new Router({
       component: Index
     },
     {
+      path: '/tab1',
+      name: 'Tab1',
+      component: Tab1
+    },
       path: '/listpage',
       name: '一个列表页的示范',
       component: ListPage
