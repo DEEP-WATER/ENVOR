@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Index from '@/components/Index'
 import ListPage from '@/view/ListPage'
 import VbindDemo from '@/view/exmapledemo/VbindDemo'
+import StoreDemo from '@/view/exmapledemo/StoreDemo'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/vbinddemo',
       name: 'vbind命令演示页面',
       component: VbindDemo
+    },
+    {
+      path: '/storedemo',
+      name: '测试store',
+      component: StoreDemo
     }
   ]
 })
