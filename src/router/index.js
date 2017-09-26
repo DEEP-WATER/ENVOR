@@ -9,6 +9,7 @@ import Layout from '@/view/Layout'
 import Table from '@/components/Table'
 const _import = require('./_import_' + process.env.NODE_ENV)
 import VbindDemo from '@/view/exmapledemo/VbindDemo'
+import StoreDemo from '@/view/exmapledemo/StoreDemo'
 
 Vue.use(Router)
 
@@ -54,6 +55,11 @@ export default new Router({
       path: '/vbinddemo',
       name: 'vbind命令演示页面',
       component: VbindDemo
+    },
+    {
+      path: '/storedemo',
+      name: '测试store',
+      component: StoreDemo
     }
   ]
 })

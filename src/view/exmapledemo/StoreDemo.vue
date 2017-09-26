@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-input v-model="changeinput"></el-input>
+    <el-button v-on:click="changeinput">button</el-button>
   </div>
 </template>
 
@@ -14,15 +15,18 @@
     name: 'storedemo',
     data () {
       return {
-
+        changeinput: ''
       }
     },
     computed: {
       ...mapGetters([
         'storedemo'
-      ]),
-      changeinput () {
-        return this.storedemo.input
+      ])
+    },
+    watch: {
+      changeinput (val) {
+        console.log('=======' + val)
+        this.$store.dispatch('StoreDemo', val)
       }
     }
   }
