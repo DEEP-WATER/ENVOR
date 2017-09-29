@@ -1,6 +1,6 @@
 <template>
   <div id="sadebar">
-    <el-menu default-active="1-4-1" theme="dark" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+    <el-menu default-active="1-4-1" theme="dark" class="el-menu-vertical-demo" unique-opened @open="handleOpen" @close="handleClose" :collapse="isCollapse">
       <el-menu-item index="0">
         <i class="el-icon-menu"></i>
         <span slot="title">首页</span>
@@ -74,19 +74,6 @@
   </div>
 </template>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 100%;
-}
-
-#sadebar {
-  height: 100%;
-  text-align: left;
-  overflow-y: auto;
-  &::-webkit-scrollbar {display:none}
-}
-</style>
 
 <script>
 import { mapGetters } from 'vuex'

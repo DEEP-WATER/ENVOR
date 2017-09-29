@@ -1,27 +1,24 @@
 <template>
     <el-menu class="navbar" mode="horizontal">
-        <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-        <levelbar></levelbar>
-        <tabs-view></tabs-view>
-        <error-log v-if="log.length>0" class="errLog-container" :logsList="log"></error-log>
-        <screenfull class="screenfull"></screenfull>
-        <el-dropdown class="avatar-container" trigger="click">
+				<hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
+        <pageName></pageName>
+				<el-dropdown class="avatar-container" trigger="click">
             <div class="avatar-wrapper">
-                <img :src="avatar+'?imageView2/1/w/80/h/80'" alt="" class="user-avatar">
+                <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80" alt="" class="user-avatar">
                 <i class="el-icon-caret-bottom"></i>
             </div>
             <el-dropdown-menu class="user-dropdown" slot="dropdown">
-				<router-link class='inlineBlock' to="/">
-					<el-dropdown-item>
+				<router-link class='inlineBlock' to="/" style="text-decoration: none;">
+					<el-dropdown-item style="color: black;">
 						首页
 					</el-dropdown-item>
 				</router-link>
-				<a target='_blank' href="https://github.com/DEEP-WATER/ENVOR">
+				<a target='_blank' href="https://github.com/DEEP-WATER/ENVOR" style="text-decoration: none; color: black;">
 					<el-dropdown-item>
 						项目地址
 					</el-dropdown-item>
 				</a>
-				<el-dropdown-item divided><span @click="logout" style="display:block;">退出登录</span></el-dropdown-item>
+				<el-dropdown-item divided><span style="display:block;">退出登录</span></el-dropdown-item>
 			</el-dropdown-menu>
         </el-dropdown>
     </el-menu>
@@ -29,41 +26,21 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Levelbar from './Levelbar'
-import TabsView from './TabsView'
-import Hamburger from 'components/Hamburger'
-import Screenfull from 'components/Screenfull'
-import ErrorLog from 'components/ErrLog'
-import errLogStore from 'store/errLog'
-
+import Hamburger from '@/components/Hamburger'
+import PageName from '@/view/PageName'
 export default {
   components: {
-    Levelbar,
-    TabsView,
     Hamburger,
-    ErrorLog,
-    Screenfull
-  },
-  data() {
-    return {
-      log: errLogStore.state.errLog
-    }
+		PageName
   },
   computed: {
     ...mapGetters([
-      'sidebar',
-      'name',
-      'avatar'
+      'sidebar'
     ])
   },
   methods: {
-    toggleSideBar() {
+    toggleSideBar () {
       this.$store.dispatch('ToggleSideBar')
-    },
-    logout() {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload()// 为了重新实例化vue-router对象 避免bug
-      })
     }
   }
 }

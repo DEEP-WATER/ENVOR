@@ -1,22 +1,28 @@
 <template>
-    <div class="app-wrapper">
+    <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
         <Sidebar class="sidebar-container"></Sidebar>
         <div class="main-container">
-					a
+					<Navbar></Navbar>
+					<AppMain></AppMain>
         </div>
     </div>
 </template>
 
 <script>
 import Sidebar from '@/components/Sidebar'
+import Navbar from '@/components/Navbar'
+import AppMain from '@/view/AppMain'
 export default {
   name: 'layout',
   components: {
-    Sidebar
+    Sidebar,
+    Navbar,
+    AppMain
   },
   computed: {
     sidebar () {
-      return this.$store.state.app.sidebar
+      console.log(this.$store.state.sidebar.sidebar)
+      return this.$store.state.sidebar.sidebar
     }
   }
 }
@@ -31,11 +37,12 @@ export default {
 		width: 100%;
 		&.hideSidebar {
 			.sidebar-container{
-				width:36px;
+				width:65px;
 				overflow: inherit;
+				background-color: #324157;
 			}
 			.main-container {
-				margin-left: 36px;
+				margin-left: 65px;
 			}
 		}
 		.sidebar-container {
@@ -48,12 +55,13 @@ export default {
 			left: 0;
 			z-index: 1001;
 			overflow-y: auto;
+			background-color: #324157;
  			&::-webkit-scrollbar {display:none}
 		}
 		.main-container {
 			min-height: 100%;
 			transition: margin-left 0.28s ease-out;
-			// margin-left: 180px;
+			margin-left: 180px;
 		}
 	}
 </style>

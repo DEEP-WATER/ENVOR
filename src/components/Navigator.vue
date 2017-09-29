@@ -1,5 +1,6 @@
 <template>
   <div id="navigator">
+    {{ name }}
   </div>
 </template>
 
@@ -19,6 +20,9 @@
   width: 100%;
   height: 50px;
   background-color: #eef1f6;
+  line-height: 50px;
+  text-align: left;
+  padding-left: 20px;
 }
 </style>
 
