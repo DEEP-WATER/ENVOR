@@ -15,7 +15,7 @@
     },
     methods: {
       add () {
-        this.$store.dispatch('storeDemo')
+        this.$store.dispatch('count')
       }
     }
   }

@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
 const _import = require('./_import_' + process.env.NODE_ENV)
+import VbindDemo from '@/view/exmapledemo/VbindDemo'
+import StoreDemo from '@/view/exmapledemo/StoreDemo'
+
 
 Vue.use(Router)
 
@@ -42,6 +45,16 @@ export default new Router({
           path: 'count',
           name: 'Count',
           component: _import('Count')
+        },
+        {
+          path: '/vbinddemo',
+          name: 'vbind命令演示页面',
+          component: VbindDemo
+        },
+        {
+          path: '/storedemo',
+          name: '测试store',
+          component: StoreDemo
         }
       ]
     }
