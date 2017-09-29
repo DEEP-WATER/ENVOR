@@ -1,76 +1,41 @@
 <template>
   <div id="sadebar">
-    <el-menu default-active="1-4-1" theme="dark" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-      <el-menu-item index="0">
-        <i class="el-icon-menu"></i>
-        <span slot="title">首页</span>
+    <el-menu default-active="0" theme="dark" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">    
+  
+  <template v-for="item in permission_routers">
+
+    <router-link v-if="!item.hidden&&item.noDropdown" :to="item.path">
+      <el-menu-item :index="item.path" class='submenu-title-noDropdown'>
+        <icon-svg v-if='item.icon' :icon-class="item.icon"></icon-svg>
+        <span>{{item.name}}</span>
       </el-menu-item>
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-message"></i>
-          <span slot="title">导航一</span>
-        </template>
-        <el-menu-item-group>
-          <span slot="title">分组一</span>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <span slot="title">选项4</span>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-submenu index="4">
-        <template slot="title">
-          <i class="el-icon-message"></i>
-          <span slot="title">导航一</span>
-        </template>
-        <el-menu-item-group>
-          <span slot="title">分组一</span>
-          <el-menu-item index="4-1">选项1</el-menu-item>
-          <el-menu-item index="4-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="4-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="4-4">
-          <span slot="title">选项4</span>
-          <el-menu-item index="4-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-message"></i>
-          <span slot="title">日志管理</span>
-        </template>
-        <el-menu-item-group>
-          <el-menu-item index="2-1">listpage</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项2</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-      <el-submenu index="3">
-        <template slot="title">
-          <i class="el-icon-message"></i>
-          <span slot="title">系统管理</span>
-        </template>
-        <el-menu-item-group>
-          <span slot="title">分组一</span>
-          <el-menu-item index="3-1">选项1</el-menu-item>
-          <el-menu-item index="3-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组3">
-          <el-menu-item index="3-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="3-4">
-          <span slot="title">选项4</span>
-          <el-menu-item index="3-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
+    </router-link>
+
+    <el-submenu :index="item.name" v-if="!item.noDropdown&&!item.hidden">
+      <template slot="title">
+        <icon-svg v-if='item.icon' :icon-class="item.icon"></icon-svg>
+        <span>{{item.name}}</span>
+      </template>
+      <template v-for="child in item.children" v-if='!child.hidden'>
+
+        <span class='nest-menu' v-if='child.children&&child.children.length>0' :routes='[child]'> </span>
+
+        <router-link v-else :to="item.path+'/'+child.path">
+          <el-menu-item :index="item.path+'/'+child.path">
+            <icon-svg v-if='child.icon' :icon-class="child.icon"></icon-svg>
+            <span>{{child.name}}</span>
+          </el-menu-item>
+        </router-link>
+
+      </template>
+
+    </el-submenu>
+
+  </template>
+
     </el-menu>
+
+
   </div>
 </template>
 
@@ -111,6 +76,7 @@ export default {
   // 这里相当于数据进行了双向绑定
   computed: {
     ...mapGetters([
+      'permission_routers',
       'sidebar'
     ]),
     test () {

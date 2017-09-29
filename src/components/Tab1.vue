@@ -51,6 +51,9 @@
       reversedMessage () {
         return this.title.split('').reverse().join('')
       }
+    },
+    created () {
+      this.firstName = 'bye!'
     }
   }
 </script>
