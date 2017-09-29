@@ -31,7 +31,7 @@ import PageName from '@/view/PageName'
 export default {
   components: {
     Hamburger,
-		PageName
+    PageName
   },
   computed: {
     ...mapGetters([

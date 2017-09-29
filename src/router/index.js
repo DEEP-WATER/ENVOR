@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
 const _import = require('./_import_' + process.env.NODE_ENV)
-import VbindDemo from '@/view/exmapledemo/VbindDemo'
 
 Vue.use(Router)
 
@@ -38,6 +37,11 @@ export default new Router({
           path: 'tag',
           name: '一个tag页的示范',
           component: _import('Tag')
+        },
+        {
+          path: 'count',
+          name: 'Count',
+          component: _import('Count')
         }
       ]
     }
