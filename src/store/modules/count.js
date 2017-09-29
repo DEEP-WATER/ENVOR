@@ -1,17 +1,15 @@
 const count = {
   state: {
-    storeDemo: {
-      count: 0
-    }
+    count: 0
   },
   actions: {
-    storeDemo ({commit}) {
+    storeCount ({commit}) {
       commit('CHANGE_COUNT')
     }
   },
   mutations: {
     CHANGE_COUNT: state => {
-      state.storeDemo.count++
+      state.count++
     }
   }
 }

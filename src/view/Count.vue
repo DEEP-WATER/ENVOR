@@ -1,21 +1,21 @@
 <template>
   <div>
-    <div>{{count}}</div>
+    <div>{{count.count}}</div>
     <button @click="add">+</button>
   </div>
 </template>
 <script>
+  import {mapGetters} from 'vuex'
   export default {
-    name: 'count',
     computed: {
-      count () {
-        console.log(this.$store)
-        return this.$store.state.count
-      }
+      ...mapGetters([
+        'count'
+      ])
     },
     methods: {
       add () {
-        this.$store.dispatch('count')
+        console.log(this.$store)
+        this.$store.dispatch('storeCount')
       }
     }
   }

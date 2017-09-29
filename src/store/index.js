@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import sidebar from './modules/sidebar'
 import storedemo from './modules/storedemo'
+import count from './modules/count'
 import getters from './getters'
 
 Vue.use(Vuex)
@@ -9,7 +10,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   modules: {
     sidebar,
-    storedemo
+    storedemo,
+    count
   },
   getters
 })

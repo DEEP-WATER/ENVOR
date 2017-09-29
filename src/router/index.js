@@ -5,7 +5,6 @@ const _import = require('./_import_' + process.env.NODE_ENV)
 import VbindDemo from '@/view/exmapledemo/VbindDemo'
 import StoreDemo from '@/view/exmapledemo/StoreDemo'
 
-
 Vue.use(Router)
 
 export default new Router({
