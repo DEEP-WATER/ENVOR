@@ -88,21 +88,11 @@ export default {
 
 **分析一波app.js**
 ```
-state: {
-    sidebar: {
-      opened: !+Cookies.get('sidebarStatus')
-    },
+const app = {
+  state: {
     visitedViews: []
   },
   mutations: {
-    TOGGLE_SIDEBAR: state => {
-      if (state.sidebar.opened) {
-        Cookies.set('sidebarStatus', 1)
-      } else {
-        Cookies.set('sidebarStatus', 0)
-      }
-      state.sidebar.opened = !state.sidebar.opened
-    },
     ADD_VISITED_VIEWS: (state, view) => {
       if (state.visitedViews.some(v => v.path === view.path)) return
       state.visitedViews.push({ name: view.name, path: view.path })
@@ -119,19 +109,18 @@ state: {
     }
   },
   actions: {
-    ToggleSideBar({ commit }) {
-      commit('TOGGLE_SIDEBAR')
-    },
-    addVisitedViews({ commit }, view) {
+    addVisitedViews ({ commit }, view) {
+      console.log(1)
       commit('ADD_VISITED_VIEWS', view)
     },
-    delVisitedViews({ commit, state }, view) {
+    delVisitedViews ({ commit, state }, view) {
       return new Promise((resolve) => {
         commit('DEL_VISITED_VIEWS', view)
         resolve([...state.visitedViews])
       })
     }
   }
+}
 ```
 - *actions* 相当于 *dva* 的 *effects*,*mutations* 相当于 *dva* 的 *reducers*。*actions* 里面的方法从页面接收数据，收到了使用 *commit* 调 *mutations*里面的方法。
 - 你 *state* 里面的属性必须写在 *getters* 里面。所有用到的属性都必须在 *getters* 里面写入。
@@ -139,7 +128,8 @@ state: {
 const getters = {
   sidebar: state => state.sidebar.sidebar,
   storedemo: state => state.storedemo.storedemo,
-  count: state => state.count
+  count: state => state.count,
+  visitedViews: state => state.app.visitedViews
 }
 export default getters
 ```
@@ -158,7 +148,8 @@ const store = new Vuex.Store({
   modules: {
     sidebar,
     storedemo,
-    count
+    count,
+    app
   },
   getters
 })

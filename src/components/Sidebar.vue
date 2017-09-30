@@ -12,8 +12,11 @@
         </template>
         <el-menu-item-group>
           <span slot="title">分组一</span>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
+          <template v-for="(item,index) in routes">
+            <router-link :to="item.path" style="text-decoration:none;">
+              <el-menu-item :index="'1-'+index" @click="propVisitedViews(item)">{{item.name}}</el-menu-item>
+            </router-link>
+          </template>
         </el-menu-item-group>
         <el-menu-item-group title="分组2">
           <el-menu-item index="1-3">选项3</el-menu-item>
@@ -47,7 +50,9 @@
           <span slot="title">日志管理</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="2-1">listpage</el-menu-item>
+          <router-link to="/listpage" style="text-decoration: none;">
+            <el-menu-item index="2-1">listpage</el-menu-item>
+          </router-link>
           <el-menu-item index="2-2">选项2</el-menu-item>
           <el-menu-item index="2-3">选项2</el-menu-item>
         </el-menu-item-group>
@@ -83,9 +88,18 @@ export default {
   data () {
     console.log('data')
     return {
-      isCollapse1: true
+      isCollapse1: true,
+      routes: [
+        {name: 'table', path: '/table'},
+        {name: 'listpage', path: '/listpage'}
+      ]
     }
   },
+  // props: {
+  //   routes: {
+  //     type: Array
+  //   }
+  // },
   // 这里相当于组件对象的静态方法
   methods: {
     handleOpen (key, keyPath) {
@@ -93,12 +107,17 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    propVisitedViews (item) {
+      console.log(item)
+      this.$store.dispatch('addVisitedViews', item)
     }
   },
   // 这里相当于数据进行了双向绑定
   computed: {
     ...mapGetters([
-      'sidebar'
+      'sidebar',
+      'visitedViews'
     ]),
     test () {
       console.dir(this)
@@ -110,10 +129,10 @@ export default {
       console.log(this.$store.sidebar)
       return !this.sidebar.opened
     }
-  },
-  created: function () {
-    console.log('created')
-    console.dir(this.store)
   }
+  // created: function () {
+  //   console.log('created')
+  //   console.dir(this.store)
+  // }
 }
 </script>

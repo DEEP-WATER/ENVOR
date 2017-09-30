@@ -18,8 +18,8 @@
       name: 'tag',
       computed: {
         visitedViews () {
-          console.log(this.$store.state)
-          return this.$store.state
+          console.log(this.$store.state.app.visitedViews)
+          return this.$store.state.app.visitedViews
         }
       },
       methods: {
@@ -36,25 +36,25 @@
           })
           $event.preventDefault()
         },
-        generateRoute () {
-          if (this.$route.matched[this.$route.matched.length - 1].name) {
-            return this.$route.matched[this.$route.matched.length - 1]
-          }
-          this.$route.matched[0].path = '/'
-          return this.$route.matched[0]
-        },
-        addViewTabs () {
-          this.$store.dispatch('addVisitedViews', this.gengerateRoute())
-        },
+        // generateRoute () {
+        //   if (this.$route.matched[this.$route.matched.length - 1].name) {
+        //     return this.$route.matched[this.$route.matched.length - 1]
+        //   }
+        //   this.$route.matched[0].path = '/'
+        //   return this.$route.matched[0]
+        // },
+        // addViewTabs () {
+        //   this.$store.dispatch('addVisitedViews', this.gengerateRoute())
+        // },
         isActive (path) {
           return path === this.$route.path
         }
-      },
-      watch: {
-        $route () {
-          this.addViewTabs()
-        }
       }
+      // watch: {
+      //   $route () {
+      //     this.addViewTabs()
+      //   }
+      // }
     }
 </script>
 

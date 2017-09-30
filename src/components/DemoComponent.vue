@@ -40,54 +40,54 @@
       showname: function () {
         console.log(this.myname)
       }
-    },
-    beforeCreate: function () {
-      console.group('beforeCreate 组件准备创建=====》')
-      console.log('%c%s', 'color:red', 'el:' + this.$el)
-      console.log('%c%s', 'color:red', 'el:' + this.$data)
-      console.log('%c%s', 'color:blue', 'el:' + this.myname)
-    },
-    created: function () {
-      console.group('created 组件创建完成=====》')
-      console.log('%c%s', 'color:red', 'el:' + this.$el)
-      console.log('%c%s', 'color:red', 'el:' + this.$data)
-      console.log('%c%s', 'color:red', 'el:' + this.myname)
-    },
-    beforeMount: function () {
-      console.group('created 组件准备挂载=====》')
-      console.log('%c%s', 'color:red', 'el:' + this.$el)
-      console.log('%c%s', 'color:red', 'el:' + this.$data)
-      console.log('%c%s', 'color:red', 'el:' + this.myname)
-    },
-    mounted: function () {
-      console.group('mounted 组件挂载完成=====》')
-      console.log('%c%s', 'color:red', 'el:' + this.$el)
-      console.log('%c%s', 'color:red', 'el:' + this.$data)
-      console.log('%c%s', 'color:red', 'el:' + this.myname)
-    },
-    beforeUpdate: function () {
-      console.group('beforeUpdate 组件准备更新=====》')
-      console.log('%c%s', 'color:red', 'el:' + this.$el)
-      console.log('%c%s', 'color:red', 'el:' + this.$data)
-      console.log('%c%s', 'color:red', 'el:' + this.myname)
-    },
-    updated: function () {
-      console.group('updated 组件更新完成=====》')
-      console.log('%c%s', 'color:red', 'el:' + this.$el)
-      console.log('%c%s', 'color:red', 'el:' + this.$data)
-      console.log('%c%s', 'color:red', 'el:' + this.myname)
-    },
-    beforeDestroy: function () {
-      console.group('beforeDestroy 组件即将销毁=====》')
-      console.log('%c%s', 'color:red', 'el:' + this.$el)
-      console.log('%c%s', 'color:red', 'el:' + this.$data)
-      console.log('%c%s', 'color:red', 'el:' + this.myname)
-    },
-    destroyed: function () {
-      console.group('destroyed 组件销毁=====》')
-      console.log('%c%s', 'color:red', 'el:' + this.$el)
-      console.log('%c%s', 'color:red', 'el:' + this.$data)
-      console.log('%c%s', 'color:red', 'el:' + this.myname)
     }
+    // beforeCreate: function () {
+    //   console.group('beforeCreate 组件准备创建=====》')
+    //   console.log('%c%s', 'color:red', 'el:' + this.$el)
+    //   console.log('%c%s', 'color:red', 'el:' + this.$data)
+    //   console.log('%c%s', 'color:blue', 'el:' + this.myname)
+    // },
+    // created: function () {
+    //   console.group('created 组件创建完成=====》')
+    //   console.log('%c%s', 'color:red', 'el:' + this.$el)
+    //   console.log('%c%s', 'color:red', 'el:' + this.$data)
+    //   console.log('%c%s', 'color:red', 'el:' + this.myname)
+    // },
+    // beforeMount: function () {
+    //   console.group('created 组件准备挂载=====》')
+    //   console.log('%c%s', 'color:red', 'el:' + this.$el)
+    //   console.log('%c%s', 'color:red', 'el:' + this.$data)
+    //   console.log('%c%s', 'color:red', 'el:' + this.myname)
+    // },
+    // mounted: function () {
+    //   console.group('mounted 组件挂载完成=====》')
+    //   console.log('%c%s', 'color:red', 'el:' + this.$el)
+    //   console.log('%c%s', 'color:red', 'el:' + this.$data)
+    //   console.log('%c%s', 'color:red', 'el:' + this.myname)
+    // },
+    // beforeUpdate: function () {
+    //   console.group('beforeUpdate 组件准备更新=====》')
+    //   console.log('%c%s', 'color:red', 'el:' + this.$el)
+    //   console.log('%c%s', 'color:red', 'el:' + this.$data)
+    //   console.log('%c%s', 'color:red', 'el:' + this.myname)
+    // },
+    // updated: function () {
+    //   console.group('updated 组件更新完成=====》')
+    //   console.log('%c%s', 'color:red', 'el:' + this.$el)
+    //   console.log('%c%s', 'color:red', 'el:' + this.$data)
+    //   console.log('%c%s', 'color:red', 'el:' + this.myname)
+    // },
+    // beforeDestroy: function () {
+    //   console.group('beforeDestroy 组件即将销毁=====》')
+    //   console.log('%c%s', 'color:red', 'el:' + this.$el)
+    //   console.log('%c%s', 'color:red', 'el:' + this.$data)
+    //   console.log('%c%s', 'color:red', 'el:' + this.myname)
+    // },
+    // destroyed: function () {
+    //   console.group('destroyed 组件销毁=====》')
+    //   console.log('%c%s', 'color:red', 'el:' + this.$el)
+    //   console.log('%c%s', 'color:red', 'el:' + this.$data)
+    //   console.log('%c%s', 'color:red', 'el:' + this.myname)
+    // }
   }
 </script>

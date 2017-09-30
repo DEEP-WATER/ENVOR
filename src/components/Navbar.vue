@@ -2,6 +2,7 @@
     <el-menu class="navbar" mode="horizontal">
 				<hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
         <pageName></pageName>
+				<tag>1</tag>
 				<el-dropdown class="avatar-container" trigger="click">
             <div class="avatar-wrapper">
                 <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80" alt="" class="user-avatar">
@@ -28,10 +29,12 @@
 import { mapGetters } from 'vuex'
 import Hamburger from '@/components/Hamburger'
 import PageName from '@/view/PageName'
+import Tag from '@/view/Tag'
 export default {
   components: {
     Hamburger,
-    PageName
+    PageName,
+    Tag
   },
   computed: {
     ...mapGetters([
