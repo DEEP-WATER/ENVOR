@@ -34,7 +34,7 @@ export const constantRouterMap = [
   {
     path: '/listpage',
     name: '一个列表页的示范',
-    component: ListPage,
+    component: Layout,
     redirect: '/listpage/index',
     icon: 'zujian',
     children: [
@@ -67,17 +67,17 @@ export default new Router({
 })
 
 export const asyncRouterMap = [
-  {
-    path: '/listpage',
-    name: '一个列表页的示范',
-    component: Layout,
-    redirect: '/listpage/index',
-    icon: 'zujian',
-    children: [
-      { path: 'index', component: Table, name: '介绍 ' },
-      { path: 'tinymce', component: VbindDemo, name: '富文本编辑器' }
-    ]
-  }
+  // {
+  //   path: '/listpage',
+  //   name: '一个列表页的示范',
+  //   component: Layout,
+  //   redirect: '/listpage/index',
+  //   icon: 'zujian',
+  //   children: [
+  //     { path: 'index', component: Table, name: '介绍 ' },
+  //     { path: 'tinymce', component: VbindDemo, name: '富文本编辑器' }
+  //   ]
+  // }
   // {
   //   path: '/permission',
   //   component: Layout,

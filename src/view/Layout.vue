@@ -1,18 +1,20 @@
 <template>
     <div class="app-wrapper">
-        <Sidebar class="sidebar-container"></Sidebar>
         <div class="main-container">
-					a
+          <!--<Sidebar class="sidebar-container"></Sidebar>-->
+					<app-main></app-main>
         </div>
     </div>
 </template>
 
 <script>
 import Sidebar from '@/components/Sidebar'
+import AppMain from '@/components/AppMain'
 export default {
   name: 'layout',
   components: {
-    Sidebar
+    Sidebar,
+    AppMain
   },
   computed: {
     sidebar () {
