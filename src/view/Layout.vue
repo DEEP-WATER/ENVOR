@@ -1,6 +1,6 @@
 <template>
     <div class="app-wrapper">
-        <div class="main-container">
+        <div class="main-container" :class="{hideSidebar:!sidebar.opened}">
           <!--<Sidebar class="sidebar-container"></Sidebar>-->
 					<app-main></app-main>
         </div>
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Sidebar from '@/components/Sidebar'
 import AppMain from '@/components/AppMain'
 export default {
@@ -17,45 +18,19 @@ export default {
     AppMain
   },
   computed: {
-    sidebar () {
-      return this.$store.state.app.sidebar
-    }
+    ...mapGetters([
+      'sidebar'
+    ])
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 	@import "src/styles/mixin.scss";
-	.app-wrapper {
-		@include clearfix;
-		position: relative;
-		height: 100%;
-		width: 100%;
+	.main-container {
+		margin-left: 36px;
 		&.hideSidebar {
-			.sidebar-container{
-				width:36px;
-				overflow: inherit;
-			}
-			.main-container {
-				margin-left: 36px;
-			}
-		}
-		.sidebar-container {
-			transition: width 0.28s ease-out;
-			width: 180px;
-			height: 100%;
-			position: fixed;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			z-index: 1001;
-			overflow-y: auto;
- 			&::-webkit-scrollbar {display:none}
-		}
-		.main-container {
-			min-height: 100%;
-			transition: margin-left 0.28s ease-out;
-			// margin-left: 180px;
+			margin-left: 200px;
 		}
 	}
 </style>

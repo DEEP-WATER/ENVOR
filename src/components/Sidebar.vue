@@ -45,6 +45,11 @@
   min-height: 100%;
 }
 
+.el-menu-vertical-demo.el-menu--collapse{
+  // width: 100px;
+  min-height: 100%;
+}
+
 #sadebar {
   height: 100%;
   text-align: left;
