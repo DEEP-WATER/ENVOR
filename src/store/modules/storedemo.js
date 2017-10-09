@@ -5,13 +5,13 @@ const storedemo = {
     }
   },
   mutations: {
-    CHANGE_INPUT: state => {
-      state.storedemo.input = '123456'
+    CHANGE_INPUT: (state, input) => {
+      state.storedemo.input = input
     }
   },
   actions: {
-    StoreDemo ({ commit }) {
-      commit('CHANGE_INPUT')
+    StoreDemo ({ commit }, input) {
+      commit('CHANGE_INPUT', input)
     }
   }
 }
