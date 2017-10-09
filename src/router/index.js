@@ -9,6 +9,7 @@ import Layout from '@/view/Layout'
 import Table from '@/components/Table'
 const _import = require('./_import_' + process.env.NODE_ENV)
 import VbindDemo from '@/view/exmapledemo/VbindDemo'
+import StoreDemo from '@/view/exmapledemo/StoreDemo'
 
 Vue.use(Router)
 
@@ -39,7 +40,8 @@ export const constantRouterMap = [
     icon: 'zujian',
     children: [
       { path: 'index', component: ListPage, name: '介绍 ' },
-      { path: 'tinymce', component: VbindDemo, name: '富文本编辑器' }
+      { path: 'tinymce', component: VbindDemo, name: '富文本编辑器' },
+      {path: 'storedemo', name: '测试store', component: StoreDemo}
     ]
   },
   {
