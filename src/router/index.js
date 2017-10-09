@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 const _import = require('./_import_' + process.env.NODE_ENV)
 import VbindDemo from '@/view/exmapledemo/VbindDemo'
 import StoreDemo from '@/view/exmapledemo/StoreDemo'
+import TableDemon from '@/view/TableDemon'
 
 Vue.use(Router)
 
@@ -54,6 +55,11 @@ export default new Router({
           path: '/storedemo',
           name: '测试store',
           component: StoreDemo
+        },
+        {
+          path: '/tableDemon',
+          name: '综合table',
+          component: TableDemon
         }
       ]
     }
