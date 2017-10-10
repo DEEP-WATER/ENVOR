@@ -10,6 +10,7 @@ import Table from '@/components/Table'
 const _import = require('./_import_' + process.env.NODE_ENV)
 import VbindDemo from '@/view/exmapledemo/VbindDemo'
 import StoreDemo from '@/view/exmapledemo/StoreDemo'
+import Excel from '@/view/excel/index'
 
 Vue.use(Router)
 
@@ -42,6 +43,18 @@ export const constantRouterMap = [
       { path: 'index', component: ListPage, name: '介绍 ' },
       { path: 'tinymce', component: VbindDemo, name: '富文本编辑器' },
       {path: 'storedemo', name: '测试store', component: StoreDemo}
+    ]
+  },
+  {
+    path: '/excel',
+    component: Layout,
+    redirect: '/excel/download',
+    name: 'excel',
+    icon: 'EXCEL',
+    children: [
+      { path: 'download', component: Excel, name: '导出excel' }
+      // { path: 'download2', component: _import('excel/selectExcel'), name: '导出已选择项' },
+      // { path: 'upload', component: _import('excel/uploadExcel'), name: 'upload excel' }
     ]
   },
   {
