@@ -1,7 +1,7 @@
 /* eslint-disable */
-// require('script-loader!file-saver');
-// require('script-loader!vendor/Blob');
-// require('script-loader!xlsx/dist/xlsx.core.min');
+require('script-loader!file-saver');
+require('script-loader!../vendor/Blob');
+require('script-loader!xlsx/dist/xlsx.core.min');
 function generateArray(table) {
     var out = [];
     var rows = table.querySelectorAll('tr');

@@ -1,5 +1,5 @@
 // 操作授权信息
-import Cookies from 'js-cookie'
+import Cookies from '@../../js-cookie'
 
 const TokenKey = 'Admin-Token'
 

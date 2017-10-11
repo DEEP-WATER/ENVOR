@@ -33,7 +33,7 @@
 </template>
 
 <script>
-// import { fetchList } from '@/api/article'
+import { fetchList } from '@/api/article'
 
 export default {
   data() {
@@ -48,11 +48,11 @@ export default {
   },
   methods: {
     fetchData() {
-      this.listLoading = false
-      // fetchList().then(response => {
-      //   this.list = response.data.items
-      //   this.listLoading = false
-      // })
+      this.listLoading = true
+      fetchList().then(response => {
+        this.list = response.data.items
+        this.listLoading = false
+      })
     },
     handleDownload() {
       this.downloadLoading = true
