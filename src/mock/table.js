@@ -4,4 +4,5 @@ const tableData = [
   {number: 2, date: '2017/10/8', name: '吴彦祖', address: '新城科技园'},
   {number: 3, date: '2017/10/7', name: '周星驰', address: '新城科技园'}
 ]
+
 export default tableData

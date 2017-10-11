@@ -91,7 +91,8 @@ export default {
       isCollapse1: true,
       routes: [
         {name: 'table', path: '/table'},
-        {name: 'listpage', path: '/listpage'}
+        {name: 'listpage', path: '/listpage'},
+        {name: '综合table', path: '/tableDemon'}
       ]
     }
   },
