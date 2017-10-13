@@ -2,7 +2,7 @@
   <div id="sadebar">
     <el-menu default-active="0" theme="dark" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">    
   
-  <template v-for="item in permission_routers">
+  <template v-for="item in addRouters">
 
     <router-link v-if="!item.hidden&&item.noDropdown" :to="item.path">
       <el-menu-item :index="item.path" class='submenu-title-noDropdown'>
@@ -82,6 +82,7 @@ export default {
   computed: {
     ...mapGetters([
       'permission_routers',
+      'addRouters',
       'sidebar'
     ]),
     test () {
@@ -97,7 +98,8 @@ export default {
   },
   created: function () {
     console.log('created')
-    console.dir(this.store)
+    console.dir(this.$store)
+    this.$store.dispatch('GenerateRoutes')
   }
 }
 </script>
