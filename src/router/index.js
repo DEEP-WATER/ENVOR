@@ -10,6 +10,7 @@ import Table from '@/components/Table'
 const _import = require('./_import_' + process.env.NODE_ENV)
 import VbindDemo from '@/view/exmapledemo/VbindDemo'
 import StoreDemo from '@/view/exmapledemo/StoreDemo'
+import Excel from '@/view/excel/index'
 
 Vue.use(Router)
 
@@ -40,7 +41,20 @@ export const constantRouterMap = [
     icon: 'zujian',
     children: [
       { path: 'index', component: ListPage, name: '介绍 ' },
-      { path: 'tinymce', component: VbindDemo, name: '富文本编辑器' }
+      { path: 'tinymce', component: VbindDemo, name: '富文本编辑器' },
+      {path: 'storedemo', name: '测试store', component: StoreDemo}
+    ]
+  },
+  {
+    path: '/excel',
+    component: Layout,
+    redirect: '/excel/download',
+    name: 'excel',
+    icon: 'EXCEL',
+    children: [
+      { path: 'download', component: Excel, name: '导出excel' }
+      // { path: 'download2', component: _import('excel/selectExcel'), name: '导出已选择项' },
+      // { path: 'upload', component: _import('excel/uploadExcel'), name: 'upload excel' }
     ]
   },
   {
@@ -64,55 +78,7 @@ export const constantRouterMap = [
 ]
 
 export default new Router({
-  routes: constantRouterMap，
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Layout,
-      children: [
-        {
-          path: 'a',
-          component: _import('Hello'),
-          name: '首页'
-        }
-      ]
-    },
-    {
-      path: '/index',
-      name: 'Index',
-      component: Index
-    },
-    {
-      path: '/tab1',
-      name: 'Tab1',
-      component: Tab1
-    },
-      path: '/listpage',
-      name: '一个列表页的示范',
-      component: ListPage
-    },
-    {
-      path: '/layout',
-      name: 'Layout',
-      component: Layout
-    },
-    {
-      path: '/table',
-      name: 'Table',
-      component: Table
-    },
-    }
-      path: '/vbinddemo',
-      name: 'vbind命令演示页面',
-      component: VbindDemo
-    },
-    {
-      path: '/storedemo',
-      name: '测试store',
-      component: StoreDemo
-    }
-  ]
+  routes: constantRouterMap
 })
 
 export const asyncRouterMap = [

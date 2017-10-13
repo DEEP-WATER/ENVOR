@@ -3,20 +3,26 @@
     <div class="menu">      
       <Sidebar></Sidebar>
     </div>
-    <div class="content">
-      <!--<Navigator></Navigator>-->
+    <div class="content" :class="{hideSidebar:!sidebar.opened}">
+      <Navigator></Navigator>
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Navigator from '@/components/Navigator'
 import Sidebar from '@/components/Sidebar'
 
 export default {
   name: 'app',
-  components: { Navigator, Sidebar }
+  components: { Navigator, Sidebar },
+  computed: {
+    ...mapGetters([
+      'sidebar'
+    ])
+  }
 }
 </script>
 
@@ -38,7 +44,7 @@ body {
   margin: 0px;
 }
 .menu {
-  width: 200px;
+  min-width: 38px;
   height: 100%;
   float: left;
   overflow: hidden;
@@ -47,4 +53,8 @@ body {
   height: 100%;
   margin-left: 200px;
 }
+.content.hideSidebar {
+  margin-left: 64px;
+}
+
 </style>
