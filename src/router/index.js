@@ -13,7 +13,8 @@ var index = {path: '/', name: 'index', component: _import('Layout'), redirect: '
 var children = [
   {path: 'hello', component: _import('Hello'), name: '首页'},
   {path: 'table', name: '表格页示范', component: _import('Table')},
-  {path: 'listpage', name: '列表页示范', component: _import('ListPage')}
+  {path: 'listpage', name: '列表页示范', component: _import('ListPage')},
+  {path: 'test', name: 'test', component: _import('test')}
 ]
 index.children = children
 index.children.push({path: '/tableDemon', name: '综合table', component: TableDemon})
